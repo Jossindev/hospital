@@ -30,9 +30,11 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "patient", referencedColumnName = "id")
+    @OneToOne(mappedBy = "user")
     private Patient patient;
+
+    @OneToOne(mappedBy = "user")
+    private Doctor doctor;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,25 +1,28 @@
 package com.example.hospital.entity;
-import lombok.Data;
+
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "patients")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long patientId;
 
     private boolean onTreatment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "patients")
-    private Set<User> users;
+    @OneToOne
+    @JoinColumn(name = "user")
+    private User user;
 }
