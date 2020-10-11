@@ -12,7 +12,6 @@ import java.util.Optional;
 public class AssignmentServiceImpl {
     private final AssignmentRepository assignmentRepository;
 
-
     public Optional<Assignment> findById(Long id) {
         return assignmentRepository.findById(id);
     }

@@ -1,8 +1,6 @@
 package com.example.hospital.service.implementations;
 
-import com.example.hospital.entity.Doctor;
 import com.example.hospital.entity.Patient;
-import com.example.hospital.repository.DoctorRepository;
 import com.example.hospital.repository.PatientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

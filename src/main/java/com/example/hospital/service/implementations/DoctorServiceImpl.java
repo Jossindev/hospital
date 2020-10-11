@@ -13,7 +13,6 @@ import java.util.Optional;
 public class DoctorServiceImpl {
     private final DoctorRepository doctorRepository;
 
-
     public Optional<Doctor> findById(Long id) {
         return doctorRepository.findById(id);
     }

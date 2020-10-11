@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @RestController
 @RequiredArgsConstructor
 public class SignController {
-    SignService signService;
+    private final SignService signService;
 
     @GetMapping("/login")
     public ModelAndView getLoginPage() {
@@ -40,18 +40,7 @@ public class SignController {
 
         signService.signUp(name,surname, LocalDate.parse(birthday), email, password, role);
 
-        ModelAndView modelAndView;
-
-        switch (role) {
-            case "ADMIN":
-                modelAndView = new ModelAndView("redirect:/adminHome");
-            case "DOCTOR":
-                modelAndView = new ModelAndView("redirect:/doctorHome");
-            case "PATIENT":
-                modelAndView = new ModelAndView("redirect:/patientHome");
-            default:  modelAndView = new ModelAndView("redirect:/register");
-        }
-        return modelAndView;
+        return new ModelAndView("login");
 
     }
 }

@@ -22,14 +22,6 @@ public class SignServiceImpl implements SignService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-
-    //    public void signUp(UserDto userDto) {
-//        User user = userDto.toUser();
-//        user.setRoles(Collections.singleton(new Role()));
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        userRepository.save(user);
-//    }
-
     @Override
     public void signUp(String name, String surname, LocalDate birthday, String email, String password, String role) {
         User user = new User();
