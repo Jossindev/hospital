@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/loggedIn", true)
+                    .failureUrl("/login?error=true")
                     .permitAll()
                 .and()
                     .logout()

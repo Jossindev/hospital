@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,38 +14,34 @@
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="${pageContext.request.contextPath}/login" class="brand-logo"><i class="material-icons">local_hospital</i>Hospital</a>
+                <a href="/login" class="brand-logo" th:text="#{hospital}"><i class="material-icons">local_hospital </i></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <div>
-                            <form>
-                                <select id="language" name="language" onchange="submit()">
-                                    <option  value="en">English</option>
-                                    <option  value="ua">Українська</option>
-                                </select>
-                            </form>
-                        </div>
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1' th:text="#{changeLang}"></a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li> <a class="dropdown-item" href="/?lang=en" >English</a></li>
+                            <li> <a class="dropdown-item" href="/?lang=ua" >Українська</a></li>
+
+                        </ul>
                     </li>
-                    <li><a href="#">home</a></li>
-                    <li><a href="${pageContext.request.contextPath}/login" class="btn">login</a></li>
+                    <li> <a class="btn" href="/login" th:text="#{login}"></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="${pageContext.request.contextPath}/">home</a></li>
-        <li><a href="${pageContext.request.contextPath}/login" class="btn">login</a></li>
+        <li><a href="/login" class="btn" th:text="#{login}"></a></li>
     </ul>
 </header>
 
 <section class="container section scrollspy" id="photos">
     <div class="col s12 l4">
-        <img src="img/stay_home.jpg" alt="image" class="responsive-img materialboxed z-depth-3 hoverable">
+        <img src="stay_home.jpg" alt="image" class="responsive-img materialboxed z-depth-3 hoverable">
     </div>
     <div class="col s12 l6 offset-l1">
-        <h2 class="indigo-text text-darken-4">hospital</h2>
+        <h2 class="indigo-text text-darken-4" th:text="#{hospital}"></h2>
         <p>Адміністратору системи доступний список Лікарів за категоріями (педіатр, травматолог, хірург, ...) і список
             Пацієнтів. <br>
             Реалізувати можливість сортування:<br>
@@ -74,8 +70,8 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Hospital Project</h5>
-                <p class="grey-text text-lighten-4"><pre>This project was created in Autumn 2020
-             By Bohdan Boyko developer</pre></p>
+                <p class="grey-text text-lighten-4" th:text="#{timeCreate}"><pre>
+                  <p class="grey-text text-lighten-4" th:text="#{timeCreate}"></p> </pre>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Connect</h5>
@@ -87,9 +83,7 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <div class="container">
-            © 2020 Fake hospital
-        </div>
+        <div class="container" th:text="#{fakeHospital}"></div>
     </div>
 </footer>
 
@@ -100,6 +94,7 @@
         $('.sidenav').sidenav();
         $('.materialboxed').materialbox();
         $('select').formSelect();
+        $('.dropdown-trigger').dropdown();
     });
 </script>
 </body>

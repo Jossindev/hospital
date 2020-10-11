@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -13,7 +13,7 @@
     <div class="col m6 offset-m3 l4 offset-l4 s12">
         <div class="card-panel z-depth-5" style="min-height: 90vh; margin-top: 4vh; position: relative">
             <div class="valign-wrapper" style="margin-top: 20%">
-                <form action="homePage.html" method="POST" class="center-block" style="text-align: center; min-width: 80%">
+                <form action="/login" method="POST" class="center-block" style="text-align: center; min-width: 80%">
                     <h1>Log in</h1>
                     <h4>Welcome back!</h4>
                     <div class="input-field" style="margin-top: 40px">
@@ -26,12 +26,12 @@
                         <input type="password" id="password" name="password">
                         <label for="password">Your Password</label>
                     </div>
-                    <p>Don`t have an account yet? <a href="reg.html">Register</a></p>
+                    <p>Don`t have an account yet? <a href="/registration">Register</a></p>
                     <div class="input-field center">
                         <button class="btn-large indigo darken-4" type="submit">Log in</button>
                     </div>
                 </form>
-                <a style="position: absolute; bottom: 2%" href="homePage.html">Go home</a>
+                <a style="position: absolute; bottom: 2%" href="/">Go home</a>
             </div>
         </div>
     </div>

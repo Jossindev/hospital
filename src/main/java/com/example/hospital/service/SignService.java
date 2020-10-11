@@ -1,8 +1,10 @@
 package com.example.hospital.service;
 
-import com.example.hospital.dto.UserDto;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.time.LocalDate;
+
 public interface SignService extends UserDetailsService {
-    void signUp(UserDto userDto);
+    public void signUp(String name, String surname, LocalDate birthday, String email, String password, String role);
 }

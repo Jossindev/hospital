@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="${language}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -13,11 +13,9 @@
     <div class="col m6 offset-m3 l4 offset-l4 s12">
         <div class="card-panel z-depth-5" style="min-height: 90vh; margin-top: 4vh; position: relative">
             <div class="valign-wrapper">
-                <form action="${pageContext.request.contextPath}/register" method="POST" class="center-block" style="text-align: center">
+                <form action="/registration" method="POST" class="center-block" style="text-align: center">
                     <h1>register</h1>
-                    <% if (request.getAttribute("bad_getaway") != null ) {%>
-                    <p class="red-text">incorrect reg</p>
-                    <% } %>
+
                     <div class="input-field" style="margin-top: 40px">
                         <i class="material-icons prefix">account_circle</i>
                         <input type="text" id="name" name="name" >
@@ -53,30 +51,30 @@
                         <div class="input-field">
                             <p>
                                 <label>
-                                    <input class="with-gap" name="role" type="radio" value="1" checked />
+                                    <input class="with-gap" name="role" type="radio" value="PATIENT" checked />
                                     <span>patient</span>
                                 </label>
                             </p>
                             <p>
                                 <label>
-                                    <input class="with-gap" name="role" type="radio" value="2" />
+                                    <input class="with-gap" name="role" type="radio" value="DOCTOR" />
                                     <span>doctor</span>
                                 </label>
                             </p>
                             <p>
                                 <label>
-                                    <input class="with-gap" name="role" type="radio" value="3" />
+                                    <input class="with-gap" name="role" type="radio" value="ADMIN" />
                                     <span>admin</span>
                                 </label>
                             </p>
                         </div>
                     </div>
-                    <p>have account <a href="${pageContext.request.contextPath}/login">login</a></p>
+                    <p>have account <a href="/login">login</a></p>
                     <div class="input-field center">
                         <button class="btn-large purple darken-4" type="submit">create account</button>
                     </div>
                 </form>
-                <a style="position: absolute; bottom: 2%" href="${pageContext.request.contextPath}/">home </a>
+                <a style="position: absolute; bottom: 2%" href="/">home</a>
             </div>
         </div>
     </div>
