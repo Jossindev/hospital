@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 
-
 @RestController
 @RequiredArgsConstructor
 public class SignController {
@@ -41,6 +40,5 @@ public class SignController {
         signService.signUp(name,surname, LocalDate.parse(birthday), email, password, role);
 
         return new ModelAndView("login");
-
     }
 }

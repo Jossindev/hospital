@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -26,11 +25,11 @@
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><i class="material-icons">local_hospital</i>HOSPITAL</a>
+                <a href="#" class="brand-logo" th:text="#{hospital}"><i class="material-icons">local_hospital</i></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
 
-                    <li><a href="#" class="btn">Logout</a></li>
+                    <li><a href="#" class="btn" th:text="#{logout}"></a></li>
                 </ul>
             </div>
             <div class="input-field col s12">
@@ -39,14 +38,14 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="#" class="btn">Logout</a></li>
+        <li><a href="#" class="btn" th:text="#{logout}"></a></li>
     </ul>
 </header>
 <main>
     <!-- Banner image-->
     <div class="container">
         <ul class="collection with-header">
-            <li class="collection-header"><h4>Name Patient <a href="#" class="btn right red darken-4">hospital card</a>
+            <li class="collection-header"><h4>Name Patient <a href="#" class="btn right red darken-4" th:text="#{hospitalCard}"></a>
             </h4></li>
             <li class="collection-item ">
                 <span class="title">Name</span>
@@ -62,30 +61,27 @@
     </div>
 
 </main>
+
 <!-- Footer -->
 <footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Hospital Project</h5>
-                <p class="grey-text text-lighten-4">
-                <pre>This project was created in Autumn 2020
-             By Bohdan Boyko developer</pre>
+                <p class="grey-text text-lighten-4" th:text="#{timeCreate}"><br>
+                <p class="grey-text text-lighten-4" th:text="#{developer}"></p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Connect</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="https://github.com/Jossindev">GitHub</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/bohdan-boiko-07773b1a4/">LinkedIn</a>
-                    </li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/bohdan-boiko-07773b1a4/">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
-        <div class="container">
-            © 2020 Fake hospital
-        </div>
+        <div class="container" th:text="#{fakeHospital}"></div>
     </div>
 </footer>
 
