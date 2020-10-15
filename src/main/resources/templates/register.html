@@ -46,7 +46,7 @@
                         <label for="confirm-password" th:text="#{repeatPass}"></label>
                     </div>
                     <div class="left-align" style="margin-left: 1vh">
-                        <p><strong> choose role</strong></p>
+                        <p><strong th:text="#{chooseRole}"></strong></p>
                         <div class="input-field">
                             <p>
                                 <label>
@@ -68,7 +68,7 @@
                             </p>
                         </div>
                     </div>
-                    <p th:text="#{haveAccount}"><a href="/login" th:text="#{login}"></a></p>
+                    <h th:text="#{haveAccount}"></h><a href="/login" th:text="#{login}"></a>
                     <div class="input-field center">
                         <button class="btn-large purple darken-4" type="submit" th:text="#{createAccount}"></button>
                     </div>

@@ -7,12 +7,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Set;
-
+import java.util.Collections;
 
 @Getter
 @Setter
-@ToString(exclude = {"roles"})
+@ToString(exclude = {"role"})
 @EqualsAndHashCode(of = "userId")
 @NoArgsConstructor
 @Entity(name = "users")
@@ -27,8 +26,10 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Role> roles;
+   // @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToOne(mappedBy = "user")
     private Patient patient;
@@ -38,11 +39,13 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+        return Collections.singleton(getRole());
     }
 
     @Override
-    public String getUsername() { return name; }
+    public String getUsername() {
+        return name;
+    }
 
     @Override
     public String getPassword() {

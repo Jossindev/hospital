@@ -1,5 +1,6 @@
 package com.example.hospital.controller;
 
+import com.example.hospital.entity.Role;
 import com.example.hospital.service.SignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
@@ -37,7 +38,7 @@ public class SignController {
             return modelAndView;
         }
 
-        signService.signUp(name,surname, LocalDate.parse(birthday), email, password, role);
+        signService.signUp(name,surname, LocalDate.parse(birthday), email, password, Role.valueOf(role));
 
         return new ModelAndView("login");
     }

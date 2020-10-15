@@ -31,6 +31,7 @@ public class LocaleConfig implements WebMvcConfigurer {
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
         localeChangeInterceptor.setParamName(LANG_URL_PARAMETER);
+
         return localeChangeInterceptor;
     }
 
@@ -38,6 +39,7 @@ public class LocaleConfig implements WebMvcConfigurer {
     public LocaleResolver localeResolver() {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         sessionLocaleResolver.setDefaultLocale(Locale.US);
+
         return sessionLocaleResolver;
     }
 
